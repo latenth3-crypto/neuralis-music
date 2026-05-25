@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEURALIS // Premium Futuristic Music Discovery & Streaming Ecosystem</title>
+  <meta name="description" content="Explore a galactic sound universe. Experience AI recommendation engines, dynamic synthesizers, live cyberchat, timed lyrics, and interactive hardware-accelerated canvas visualizers.">
+  <link rel="stylesheet" href="./src/style.css">
+  <!-- GSAP Motion Physics Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- 1. IMMERSIVE HOLOGRAM LOADING SCREEN -->
+  <div id="loading-overlay">
+    <div class="loader-hologram"></div>
+    <div class="loader-text">SYNAPSE CONNECTING...</div>
+  </div>
+
+  <!-- 2. AUDIO-REACTIVE DIGITAL STARFIELD CANVAS -->
+  <canvas id="particle-starfield-canvas"></canvas>
+
+  <div id="app-shell">
+
+    <!-- 3. CONTROL DASHBOARD NAVIGATION SIDEBAR -->
+    <aside id="sidebar" class="glass-panel">
+      <div>
+        <div class="brand-container">
+          <div class="brand-logo-icon">▲</div>
+          <span>NEURALIS</span>
+        </div>
+        
+        <nav class="sidebar-nav">
+          <a class="nav-item active" data-tab="dashboard">
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" data-tab="visualizer">
+            <span>Visualizer Mode</span>
+          </a>
+          <a class="nav-item" data-tab="chat">
+            <span>Cyber-Sphere Chat</span>
+          </a>
+          <a class="nav-item" data-tab="subscription">
+            <span>Infinity Pass</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Spotify API Live Synchronization HUD -->
+      <div class="sidebar-status api-sync-widget">
+        <div class="status-header">
+          <span style="color: var(--cyan);">SPOTIFY SYNC NET</span>
+          <span class="api-connect-dot"></span>
+        </div>
+        <div class="api-widget-grid">
+          <div class="api-metadata">
+            <div class="api-metric"><span class="api-lbl">LATENCY:</span> <span class="api-val" id="api-latency-label">24 ms</span></div>
+            <div class="api-metric"><span class="api-lbl">PACKETS:</span> <span class="api-val" id="api-packets-label">1420</span></div>
+            <div class="api-metric"><span class="api-lbl">SUBSCRIBERS:</span> <span class="api-val" id="api-listeners-label">5,824,900</span></div>
+          </div>
+          <canvas id="api-network-canvas"></canvas>
+        </div>
+      </div>
+
+      <!-- NEURAL FILE UPLOAD PORT (LOCAL MP3 INJECTOR) -->
+      <div class="sidebar-status upload-portal-widget">
+        <div class="status-header">
+          <span style="color: var(--cyan);">NEURAL UPLOAD PORT</span>
+          <span class="upload-pulse-led"></span>
+        </div>
+        <div class="upload-drop-zone" id="upload-drop-zone">
+          <span class="upload-icon">📂</span>
+          <p class="upload-txt">Inject Local Wave Files</p>
+          <span class="upload-sub">Drag & Drop MP3/WAV here</span>
+          <input type="file" id="local-audio-uploader" accept="audio/*" style="display: none;">
+        </div>
+      </div>
+
+      <!-- Left Dashboard Stats Module -->
+      <div class="sidebar-status">
+        <div class="status-header">
+          <span>COGNITIVE FLOW</span>
+          <span id="stats-sync">97.4%</span>
+        </div>
+        <div class="status-value" id="stats-time">24.500 hrs</div>
+        <div class="status-meta">Listener: #NEURAL-7789</div>
+      </div>
+    </aside>
+
+    <!-- 4. MAIN SCROLLABLE WORKSPACE FEED -->
+    <main id="workspace">
+
+      <!-- STICKY HEADER & SEARCH ENGINE -->
+      <header class="dashboard-header glass-panel">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="main-search-input" class="search-input" placeholder="Query the sound universe (e.g. quantum)..." autocomplete="off">
+          
+          <!-- Smart autocomplete dropdown box -->
+          <div id="search-autocomplete-dropdown" class="search-results-dropdown">
+            <!-- Dynamically populated rows in main.js -->
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <!-- Voice Command Microphone Decrypter Orb -->
+          <button type="button" id="voice-control-orb" class="util-panel-btn active-voice-orb" title="Initiate Voice Command Synapse">
+            <span class="mic-icon">🎙️</span>
+            <span class="mic-status-ring"></span>
+          </button>
+
+          <div class="profile-badge">
+            <div class="avatar-glow"></div>
+            <span class="profile-name">Listener_7789</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- SECTION 1: HERO SECTION -->
+      <section id="hero-section" class="glass-panel scroll-reveal">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+          <span class="hero-tag">System Stream Active</span>
+          <h1 class="hero-title">Experience the Quantum Melodic Matrix</h1>
+          <p class="hero-desc">Welcome to Neuralis, an advanced procedural soundscape platform. Play synthetic wave streams or let your neural nodes guide AI music algorithms into perfect frequency alignment.</p>
+          <button class="hero-btn" id="hero-cta-btn" type="button">
+            <span>INITIATE QUANTUM STREAM</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- SECTION 2: GLOBAL PORTAL // YOUTUBE MULTIVERSE -->
+      <section id="youtube-multiverse-section" class="glass-panel scroll-reveal">
+        <div class="yt-section-header">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <h3 class="section-title">Global Portal // YouTube Multiverse</h3>
+            <span class="section-subtitle">Stream popular copyrighted anthems in all languages in real-time</span>
+          </div>
+          <div class="yt-search-pill-wrapper">
+            <input type="text" id="yt-search-input" class="yt-search-input" placeholder="Paste YouTube link or search track name..." autocomplete="off">
+            <button type="button" id="yt-search-btn" class="yt-search-btn">INJECT</button>
+          </div>
+        </div>
+        
+        <div class="global-multiverse-grid" id="youtube-multiverse-grid">
+          <!-- Dynamically populated popular song cards in main.js -->
+        </div>
+      </section>
+
+      <!-- SECTION 3: GRID LAYOUT (AI MATCHES & TRENDING DECKS) -->
+      <div class="dashboard-grid-2">
+        
+        <!-- AI Recommendations Module -->
+        <section id="ai-recommendations" class="scroll-reveal">
+          <div class="section-header">
+            <h3 class="section-title">Cognitive Matches</h3>
+            <span class="section-subtitle">AI Optimized</span>
+          </div>
+          <div class="rec-card-container" id="recommendations-container">
+            <!-- Dynamic Tilting Glass Cards added in main.js -->
+          </div>
+        </section>
+
+        <!-- Trending Tracks Deck -->
+        <section id="trending" class="scroll-reveal">
+          <div class="section-header">
+            <h3 class="section-title">Trending Vectors</h3>
+            <span class="section-subtitle">Real-time Plays</span>
+          </div>
+          <div class="trending-list" id="trending-tracks-container">
+            <!-- Songs rows populated in main.js -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- SECTION 4: ROTATING 3D CAROUSEL & ALBUMS -->
+      <section id="album-showcase" class="scroll-reveal">
+        <div class="section-header">
+          <h3 class="section-title">Orbit 3D</h3>
+          <span class="section-subtitle">Click cover art to rotate & play</span>
+        </div>
+        <div class="carousel-viewport">
+          <div class="carousel-container" id="orbit-3d-container">
+            <!-- 3D Carousel slides rendering in interaction.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: PLAYLISTS & CATEGORIES -->
+      <div class="dashboard-grid-2">
+
+        <!-- Mood Spheres Grid -->
+        <section id="moods" class="scroll-reveal">
+          <div class="section-header">
+            <h3 class="section-title">Mood Frequencies</h3>
+            <span class="section-subtitle">Modulate focus & hype</span>
+          </div>
+          <div class="mood-grid" id="mood-grid-container">
+            <!-- Dynamic mood blobs created in main.js -->
+          </div>
+        </section>
+
+        <!-- Recently Played slider -->
+        <section id="recently-played" class="scroll-reveal">
+          <div class="section-header">
+            <h3 class="section-title">Recently Recalled</h3>
+            <span class="section-subtitle">Short-term Memory</span>
+          </div>
+          <div class="recently-scroller" id="recently-played-container">
+            <!-- Filled dynamically in main.js -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- SECTION 6: CINEMATIC ARTIST SPOTLIGHT -->
+      <section id="artist-spotlight-section" class="glass-panel scroll-reveal">
+        <div class="spotlight-layout">
+          <div class="spotlight-info">
+            <span class="spotlight-tag">Featured Sound Architect</span>
+            <h2 class="spotlight-name" id="spotlight-artist-name">Aethera</h2>
+            <p class="spotlight-bio" id="spotlight-artist-bio">...</p>
+            
+            <div class="spotlight-stats">
+              <div class="stat-box">
+                <span class="stat-val" id="spotlight-stat-listeners">...</span>
+                <span class="stat-lbl">Monthly Nodes</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-val" id="spotlight-stat-sync">...</span>
+                <span class="stat-lbl">Neural Sync</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="spotlight-music">
+            <h4 class="spotlight-music-title">Synthesised Masterworks</h4>
+            <div id="spotlight-tracks-container">
+              <!-- Dynamically populated in main.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: LIVE CONCERT CHAT & FEATURED RELEASES -->
+      <div class="dashboard-grid-2" style="margin-bottom: 20px;">
+
+        <!-- Simulated Cyber-Sphere listening chat room -->
+        <section id="live-listening" class="glass-panel live-sphere-container scroll-reveal">
+          <div class="live-stream-hud">
+            <div class="live-badge">
+              <div class="live-dot"></div>
+              <span>CYBER-SPHERE LIVE ROOM</span>
+            </div>
+            <span class="listeners-count">14,892 Synced Avatars</span>
+          </div>
+          
+          <div class="chat-window" id="live-chat-messages-container">
+            <!-- Simulated comments rolling in interaction.js -->
+          </div>
+          
+          <form class="chat-input-area" id="live-chat-input-form">
+            <input type="text" id="live-chat-input-box" class="chat-text-input" placeholder="Broadcast a thought stream..." autocomplete="off">
+            <button type="submit" class="chat-send-btn">▶</button>
+          </form>
+        </section>
+
+        <!-- Featured Release metadata highlights -->
+        <section id="featured-releases" class="featured-card scroll-reveal">
+          <div class="featured-layout" id="featured-releases-container">
+            <!-- Filled dynamically in main.js -->
+          </div>
+        </section>
+
+      </div>
+
+      <!-- SECTION 8: PREMIUM SUBSCRIPTION (INFINITY PASSES) -->
+      <section id="subscription" class="scroll-reveal" style="margin-bottom: 20px;">
+        <div class="section-header" style="justify-content: center; text-align: center; flex-direction: column; align-items: center; gap: 6px;">
+          <h3 class="section-title">Synchronize Your Matrix Access</h3>
+          <span class="section-subtitle" style="text-align: center;">Unlock deep-space synthesized wave pipelines, custom audio controllers, and 3D wireframe visuals</span>
+        </div>
+        
+        <div class="sub-showcase-grid" id="subscriptions-container">
+          <!-- Tilting glass premium credit cards rendered in main.js -->
+        </div>
+      </section>
+
+      <!-- SECTION 9: NEURAL TRANSMISSION SHARE & DEPLOY HUB -->
+      <section id="sharing-hub-section" class="glass-panel scroll-reveal" style="margin-bottom: 40px;">
+        <div class="sharing-layout">
+          <div class="sharing-info">
+            <span class="sharing-badge">COSMIC NETWORK COUPLING</span>
+            <h3 class="section-title">Broadcast Your Sound Universe</h3>
+            <p class="sharing-desc">Don't keep the neural matrix to yourself! Share NEURALIS with friends and co-listeners across the galaxy. You can host this platform locally or publish it globally in seconds.</p>
+            
+            <div class="sharing-channels-grid">
+              <div class="channel-card">
+                <span class="channel-icon">📡</span>
+                <h5 class="channel-name">Vite Local WiFi Network</h5>
+                <p class="channel-txt">Stream on your phone/tablet by booting the dev server in network-host mode.</p>
+                <code class="channel-code">npm run dev -- --host</code>
+              </div>
+              <div class="channel-card">
+                <span class="channel-icon">🚀</span>
+                <h5 class="channel-name">1-Click Global Hosting</h5>
+                <p class="channel-txt">Deploy 100% free to Vercel, Netlify, or GitHub Pages for a permanent public link.</p>
+                <div class="deployment-links">
+                  <a href="https://vercel.com" target="_blank" class="deploy-btn-mini">Vercel</a>
+                  <a href="https://netlify.com" target="_blank" class="deploy-btn-mini">Netlify</a>
+                  <a href="https://pages.github.com" target="_blank" class="deploy-btn-mini">GitHub Pages</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 5. FLOATING DOCK OVERLAY: FULLSCREEN REACTIVE GRAPHIC CANVAS -->
+    <div id="visualizer-overlay" class="glass-panel">
+      <div class="visualizer-hud">
+        <div class="visualizer-title">QUANTUM SPECTRUM // HARDWARE ACCELERATED</div>
+        <div class="visualizer-selectors">
+          <button class="vis-selector-btn active" data-vis="1">Circular Nebula</button>
+          <button class="vis-selector-btn" data-vis="2">Laser Rain</button>
+          <button class="vis-selector-btn" data-vis="3">Cyber Horizon</button>
+        </div>
+      </div>
+      <canvas id="main-visualizer-canvas"></canvas>
+    </div>
+
+    <!-- 6. SLIDE-OUT PANEL: TIMED DECRYPTER LYRICS -->
+    <aside id="lyrics-panel-modal" class="glass-panel">
+      <div class="lyrics-modal-header">
+        <h4 class="lyrics-modal-title">LYRIC DECRYPTER</h4>
+        <button class="util-panel-btn" id="lyrics-close-btn" style="border: none; background: none; font-size: 1.2rem;">✕</button>
+      </div>
+      <div class="lyrics-scroller-viewport" id="lyrics-viewport">
+        <!-- Lines highlighting in real-time synced to audio clock in main.js -->
+      </div>
+    </aside>
+
+    <!-- 7. FLOATING GLASS YOUTUBE VIDEO DECK -->
+    <div id="youtube-player-deck" class="glass-panel">
+      <div class="yt-deck-header">
+        <span class="yt-deck-title">YOUTUBE DECK // DIRECT SIGNAL</span>
+        <div style="display: flex; gap: 10px;">
+          <button id="yt-minimize-btn" class="yt-util-btn" title="Toggle Float Size">🗕</button>
+          <button id="yt-close-btn" class="yt-util-btn" title="Terminate Stream">✕</button>
+        </div>
+      </div>
+      <div class="yt-iframe-wrapper">
+        <div id="yt-player-container"></div>
+        <div id="yt-iframe-placeholder" class="yt-placeholder-box">
+          <div class="pulsing-radar"></div>
+          <span>Awaiting Signal Synchronization...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. PERSISTENT MASTER PLAY PLAYER FOOTER BAR -->
+    <footer id="player-bar" class="glass-panel">
+      
+      <!-- Left Info Box (Holographic Rotating Vinyl Record) -->
+      <div class="player-track-info">
+        <div id="holographic-vinyl" class="player-album-art">
+          <span id="vinyl-art-letter">▲</span>
+          <div class="vinyl-record-grooves"></div>
+          <div class="vinyl-spindle-hole"></div>
+        </div>
+        <div class="player-meta">
+          <span class="player-title" id="player-track-title">Standby Mode</span>
+          <span class="player-artist" id="player-track-artist">Press Play to Initialize</span>
+        </div>
+      </div>
+
+      <!-- Center Audio Stream Controls -->
+      <div class="player-controls-container">
+        <div class="deck-buttons">
+          <button class="deck-btn" id="shuffle-toggle-btn" title="Shuffle Vectors">🔀</button>
+          <button class="deck-btn" id="prev-track-btn" title="Previous Wave">⏮</button>
+          <button class="deck-btn play-toggle" id="master-play-btn" title="Play / Pause Stream">▶</button>
+          <button class="deck-btn" id="next-track-btn" title="Next Wave">⏭</button>
+          <button class="deck-btn" id="loop-toggle-btn" title="Loop Sequence">🔁</button>
+        </div>
+
+        <div class="timeline-slider-wrapper">
+          <span class="time-stamp" id="player-current-time">0:00</span>
+          
+          <!-- Customizable slider track -->
+          <div class="slider-bar-track" id="player-timeline-track">
+            <div class="slider-bar-fill" id="player-timeline-fill"></div>
+            <div class="slider-bar-knob" id="player-timeline-knob"></div>
+          </div>
+          
+          <span class="time-stamp" id="player-total-time">0:00</span>
+        </div>
+      </div>
+
+      <!-- Right Utility Deck & Volume slider -->
+      <div class="player-utility-deck">
+        <div class="volume-wrapper">
+          <button class="deck-btn" id="mute-toggle-btn">🔊</button>
+          <div class="volume-bar" id="player-volume-track">
+            <div class="volume-fill" id="player-volume-fill"></div>
+          </div>
+        </div>
+
+        <button class="util-panel-btn" id="lyrics-toggle-btn" title="Toggle Timed Decrypter Lyrics">🗪</button>
+        <button class="util-panel-btn" id="visualizer-toggle-btn" title="Toggle Fullscreen Canvas Visualizer">⛶</button>
+      </div>
+
+    </footer>
+
+  </div>
+
+  <!-- Entry Script Orchestrator -->
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
