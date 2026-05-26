@@ -34,6 +34,7 @@ let starfieldInstance = null;
 let apiSimInstance = null;
 let voiceCenterInstance = null;
 let isVisualizerCanvasInitialized = false;
+let activeLanguageFilter = "all";
 
 // YouTube Player Global States
 let ytPlayer = null;
@@ -70,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupDynamicLyricSync();
   setupVisualizerModes();
   setupYouTubeDeckControls();
+  setupMultiverseFilters();
   setupQuantumUploader();
 
   // Draw procedural starlight on the hero background canvas
@@ -1186,14 +1188,32 @@ function setupYouTubeDeckControls() {
   });
 }
 
+function setupMultiverseFilters() {
+  const buttons = document.querySelectorAll(".filter-tag-btn");
+  if (!buttons.length) return;
+  
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeLanguageFilter = btn.dataset.lang || "all";
+      renderYouTubeMultiverseSection();
+      showCyberNotification(`Channel Tuned: ${btn.textContent}`);
+    });
+  });
+}
+
 function renderYouTubeMultiverseSection() {
   const grid = document.getElementById("youtube-multiverse-grid");
   if (!grid) return;
   
   grid.innerHTML = "";
   
-  // Filter popular global hit tracks
-  const ytTracks = tracks.filter(t => t.youtubeId);
+  // Filter popular global hit tracks based on active language tab
+  let ytTracks = tracks.filter(t => t.youtubeId);
+  if (activeLanguageFilter !== "all") {
+    ytTracks = ytTracks.filter(t => t.genre.toLowerCase().includes(activeLanguageFilter.toLowerCase()));
+  }
   
   ytTracks.forEach(track => {
     const card = document.createElement("div");

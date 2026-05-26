@@ -2127,3 +2127,34 @@ body {
   box-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
 
+/* Premium Language Filter Bar Stylings */
+.multiverse-filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+.filter-tag-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.filter-tag-btn:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+.filter-tag-btn.active {
+  background: var(--cyan);
+  color: #000;
+  border-color: var(--cyan);
+  box-shadow: var(--cyan-glow);
+}
+
+
