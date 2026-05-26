@@ -365,6 +365,91 @@ export const tracks = [
       { time: 24, text: "Kimi no kotoba ni wa uso ga chiribamerareteiru..." },
       { time: 28, text: "Kore wa... ai na no ka na?" }
     ]
+  },
+  {
+    id: "track-12",
+    title: "Samajavaragamana",
+    artist: "Sid Sriram",
+    album: "Ala Vaikunthapurramuloo",
+    duration: "3:40",
+    durationSeconds: 220,
+    plays: "580M",
+    neuralMatch: "99.2%",
+    genre: "Tollywood / Telugu",
+    glowColor: "#00f0ff",
+    backdrop: "linear-gradient(135deg, rgba(0, 240, 255, 0.2) 0%, rgba(10, 10, 18, 0.9) 100%)",
+    youtubeId: "ocHN_6v2Y8w",
+    lyrics: [
+      { time: 0, text: "[ RESONATING TOLLYW00D HARMONICS - SAMAJAVARAGAMANA ]" },
+      { time: 4, text: "Samajavaragamana... Ninu choosi aaga galana?..." },
+      { time: 10, text: "Manasa vaacha karmana... Neevele naaku praana..." },
+      { time: 16, text: "Mallela vaana... Nee navvu chirujallu kaana..." },
+      { time: 22, text: "[ CONNECTING SID SRIRAM HIGH FREQUENCY CORE ]" }
+    ]
+  },
+  {
+    id: "track-13",
+    title: "Arabic Kuthu",
+    artist: "Anirudh Ravichander",
+    album: "Beast",
+    duration: "4:40",
+    durationSeconds: 260,
+    plays: "620M",
+    neuralMatch: "98.9%",
+    genre: "Kollywood / Tamil",
+    glowColor: "#ff007f",
+    backdrop: "linear-gradient(135deg, rgba(255, 0, 127, 0.2) 0%, rgba(10, 10, 18, 0.9) 100%)",
+    youtubeId: "KUN5Uf9mObQ",
+    lyrics: [
+      { time: 0, text: "[ INJECTING KOLLYWOOD DANCE SYNAPSE - ARABIC KUTHU ]" },
+      { time: 4, text: "Halamithi habibo... Halamithi habibo..." },
+      { time: 8, text: "Malama pitha pithadhe... Malama pitha pithadhe..." },
+      { time: 12, text: "Yenna vazhiye vazhiye vaa... Unnai vizhiye vizhiye paar..." },
+      { time: 18, text: "[ ANIRUDH BEAT SYNC INTENSITY AT 120% ]" }
+    ]
+  },
+  {
+    id: "track-14",
+    title: "Darshana",
+    artist: "Hesham Abdul Wahab",
+    album: "Hridayam",
+    duration: "3:50",
+    durationSeconds: 230,
+    plays: "240M",
+    neuralMatch: "96.8%",
+    genre: "Mollywood / Malayalam",
+    glowColor: "#39ff14",
+    backdrop: "linear-gradient(135deg, rgba(57, 255, 20, 0.2) 0%, rgba(10, 10, 18, 0.9) 100%)",
+    youtubeId: "9A608-TCSk8",
+    lyrics: [
+      { time: 0, text: "[ MOLLYWOOD MELODY MATRIX ENGAGED - DARSHANA ]" },
+      { time: 5, text: "Darshana... Ninnai njaan kandatho... Orthatho..." },
+      { time: 11, text: "Nenjile... Ee thudippum paattum aayatho..." },
+      { time: 17, text: "Kavilile... Ee chuvappum chundum nalkiyo..." },
+      { time: 23, text: "[ ACOUSTIC RESONANCE CALIBRATION COMPLETED ]" }
+    ]
+  },
+  {
+    id: "track-15",
+    title: "Jai Ho",
+    artist: "A.R. Rahman",
+    album: "Slumdog Millionaire",
+    duration: "5:12",
+    durationSeconds: 312,
+    plays: "350M",
+    neuralMatch: "97.9%",
+    genre: "Bollywood / Hindi",
+    glowColor: "#ffaa00",
+    backdrop: "linear-gradient(135deg, rgba(255, 170, 0, 0.2) 0%, rgba(10, 10, 18, 0.9) 100%)",
+    youtubeId: "xwwAVRyNip0",
+    lyrics: [
+      { time: 0, text: "[ AR RAHMAN RESONANCE MASTERWORK - JAI HO ]" },
+      { time: 3, text: "Jai Ho... Jai Ho..." },
+      { time: 7, text: "Aaja aaja jind shamiyane ke tale..." },
+      { time: 12, text: "Aaja jarra jarra chand chabaane ke chale..." },
+      { time: 17, text: "Jai Ho... Jai Ho..." },
+      { time: 21, text: "[ ACADEMY AWARD WINNING WAVE ACTIVE ]" }
+    ]
   }
 ];
 
