@@ -201,7 +201,9 @@ export function init3DTilt() {
  * 3. Intersection Observer Scroll Reveals
  */
 export function initScrollReveals() {
+  const workspace = document.getElementById("workspace");
   const options = {
+    root: workspace || null,
     threshold: 0.12,
     rootMargin: "0px 0px -40px 0px"
   };
@@ -216,7 +218,14 @@ export function initScrollReveals() {
   }, options);
 
   const revealElements = document.querySelectorAll(".scroll-reveal");
-  revealElements.forEach(el => observer.observe(el));
+  revealElements.forEach(el => {
+    // Instantly reveal first-fold sections for instant visual rendering, observe others dynamically
+    if (el.id === "hero-section" || el.id === "youtube-multiverse-section") {
+      el.classList.add("visible");
+    } else {
+      observer.observe(el);
+    }
+  });
 }
 
 /**
